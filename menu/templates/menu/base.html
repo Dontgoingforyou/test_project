@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой сайт</title>
+    <style>
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        ul {
+            display: flex;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        ul li {
+            position: relative;
+        }
+
+        ul li > a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        ul li > a:hover {
+            background-color: #f0f0f0;
+        }
+
+        ul ul {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            min-width: 150px;
+            max-width: 200px;
+        }
+
+        ul li:hover > ul {
+            display: block;
+        }
+
+        ul li.active > a {
+            background-color: #e0e0e0;
+            font-weight: bold;
+        }
+
+        ul li a {
+            padding: 8px 12px;
+        }
+
+        ul li a:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+{% load tags %}
+<nav>
+    {% draw_menu 'main_menu' %}
+</nav>
+
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>
